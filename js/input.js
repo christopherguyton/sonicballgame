@@ -3,29 +3,29 @@ export default class InputHandler {
         document.addEventListener('keydown', event => {
             switch (event.keyCode) {
                 case 37:
-                paddle.moveLeft();
-                break;
+                    paddle.moveLeft();
+                    break;
                 case 39:
-                paddle.moveRight();
-                break;
+                    paddle.moveRight();
+                    break;
                 case 13:
-                game.togglePause();
-                break;
+                    game.togglePause();
+                    break;
                 case 32:
-                game.toggleStart();
-                break;
+                    game.toggleStart();
+                    break;
             }
         });
         document.addEventListener('keyup', event => {
             switch (event.keyCode) {
                 case 37:
-                    if(paddle.speed < 0)
-                paddle.stop();
-                break;
+                    if (paddle.speed < 0)
+                        paddle.stop();
+                    break;
                 case 39:
-                    if(paddle.speed > 0)
-                paddle.stop();
-                break;
+                    if (paddle.speed > 0)
+                        paddle.stop();
+                    break;
             }
         });
     }
