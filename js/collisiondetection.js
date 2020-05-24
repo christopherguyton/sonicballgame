@@ -1,17 +1,20 @@
 export function detectCollision(ball, gameObject) {
+  let leftOfBall = ball.position.x;
+  let rightOfBall = ball.position.x + ball.size;
+  let topOfBall = ball.position.y;
+  let bottomOfBall = ball.position.y + ball.size;
 
+  let leftOfObject = gameObject.position.x;
+  let rightOfObject = gameObject.position.x + gameObject.width;
+  let topOfObject = gameObject.position.y;
+  let bottomOfObject = gameObject.position.y + gameObject.height;
 
-let bottomOfBall = ball.position.y + ball.size;
-let topOfBall = ball.position.y;
-
-let topOfObject = gameObject.position.y;
-let leftSideOfObject = gameObject.position.x;
-let rightSideOfObject = gameObject.position.x + gameObject.width;
-let bottomOfObject = gameObject.position.y + gameObject.height;
-
-if (bottomOfBall >= topOfObject && topOfBall <= bottomOfObject && ball.position.x >= leftSideOfObject && ball.position.x + ball.size <= rightSideOfObject) {
-   return true;
-} else {
-    return false;
-}
+  if (leftOfBall < rightOfObject &&
+      rightOfBall > leftOfObject &&
+      topOfBall < bottomOfObject &&
+      bottomOfBall > topOfObject) {
+     return true;
+  } else {
+      return false;
+  }
 }
